@@ -1,4 +1,5 @@
 //DAN Coleman Broadcast Sample 
+//This is just a test to see if broadcast wasn't updating because nothing had changed
 #include "contiki.h"
 #include "net/rime/rime.h"
 #include "random.h"
