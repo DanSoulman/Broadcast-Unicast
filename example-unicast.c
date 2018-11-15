@@ -40,15 +40,15 @@ static void broadcast_recv(struct broadcast_conn *c, const linkaddr_t *from){
   linkaddr_t destination;
   //rimeaddr_t destination; //Was used while using version 2.7
 
-  //Acknowledges the broadcast 
+  //Acknowledges the broadcast Doesn't work
   packetbuf_copyfrom("Hello", 6);
   char str[10];
   sprintf(str, "%d", print_val);
   packetbuf_copyfrom(str, 5);
   destination.u8[0] = from->u8[0];
   destination.u8[1] = from->u8[1];
- if(!linkaddr_cmp(&destination, &linkaddr_node_addr)){
-        unicast_send(&uc, &destination);
+ if(!linkaddr_cmp(&addr, &linkaddr_node_addr)){
+        unicast_send(&uc, &addr);
   }
 }
 
@@ -106,7 +106,8 @@ static void broadcast_recv(struct broadcast_conn *c, const linkaddr_t *from){
 	    }
 
      //Get the average from the 5 values in the array
-     print_val = val / 5;
+     print_val = (-39.60 + (0.01*val) / 5;
+	//Should have used already converted Data. Math issue
 
    }//End of while loop
 
